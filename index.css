@@ -1,0 +1,809 @@
+:root {
+    --color-orange-default: #FF9000;
+    --color-orange-blur: rgba(255, 144, 0, 0.9);
+    --color-blue-blue: #2980b9;
+    --color-grey-default: #f5f5f5;
+    --color-brown-dark: #c0392b;
+    --color-brown-light: #d35400;
+    --color-violet-default: #8e44ad;
+    --color-green-default: #27ae60;
+    --color-black-default: #2F3C4F;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.title {
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.container-config {
+    padding: 0 2rem;
+}
+
+.space-mono-regular {
+    font-family: "Space Mono", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.space-mono-bold {
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.space-mono-regular-italic {
+    font-family: "Space Mono", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.space-mono-bold-italic {
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.kaushan-script-regular {
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: "Space Mono", serif;
+}
+
+header {
+    height: 100vh;
+    background-image: url("./assets/cover_bg_3.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 0px 0px;
+    position: relative;
+    padding: 350px 0;
+}
+
+
+
+.header-captions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 2;
+}
+
+.header-image {
+    width: 240px;
+    height: 240px;
+    margin: auto;
+}
+
+.header-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.header-name {
+    font-size: 60px;
+    font-family: "Kaushan Script", cursive;
+    text-align: center;
+    transform: rotate(-5deg);
+    margin: 30px 0;
+    text-wrap: nowrap;
+}
+
+.header-name span {
+    position: relative;
+    padding: 4px 15px;
+}
+
+.header-name span::before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 5px;
+    background-color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -30px;
+}
+
+.header-name span::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 5px;
+    background-color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -30px;
+}
+
+.header-role {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+
+.header-socials {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 36px;
+}
+
+.header-socials a {
+    color: white;
+    cursor: pointer;
+}
+
+.header-overlay {
+    position: absolute;
+    background-color: var(--color-orange-default);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    z-index: 1;
+}
+
+/* ABOUT SECTION */
+section {
+    padding: 7rem 0;
+
+}
+
+
+
+
+
+.about-content-left ul li {
+    list-style: none;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.about-content-left ul li span {
+    display: inline-block;
+}
+
+.about-content-left ul li span:first-child {
+    /* text-align: start; */
+    /* float: left; */
+    font-weight: 600;
+    width: 40%;
+}
+
+.about-content-left ul li span:last-child {
+    /* text-align: end; */
+    /* float: right; */
+    width: 60%;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+
+.about-content-right main h3 {
+    margin-bottom: 23px;
+}
+
+.about-content-right main p {
+    margin-bottom: 30px;
+}
+
+.about-content-right main .header-socials {
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.about-content-right main .header-socials a {
+    background-color: var(--color-black-default);
+    width: 40px;
+    height: 40px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 2px;
+    transition: background-color .5s;
+}
+
+.about-content-right main .header-socials a:hover {
+    background-color: var(--color-orange-default);
+}
+
+.about-content-right main .header-socials a i {
+    color: white;
+    font-size: 20px;
+
+}
+
+
+/* MY RESUME SECTION  */
+
+.myResume-title {
+    margin-bottom: 7rem;
+    /* text-align: center; */
+}
+
+.timeline-header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.timeline-header .title {
+    display: inline-block;
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.timeline {
+    position: relative;
+
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #ccc;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.timeline-item .timeline-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: orange;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item .timeline-content {
+    text-align: center;
+    width: 50%;
+}
+
+.timeline .timeline-item:nth-child(odd) .timeline-content {
+    margin-right: auto;
+    padding-right: 40px;
+}
+
+.timeline .timeline-item:nth-child(even) .timeline-content {
+    margin-left: auto;
+    padding-left: 40px;
+}
+
+.timeline-item h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.timeline-item h3 {
+    margin: 5px 0;
+    font-weight: normal;
+    color: gray;
+}
+
+.timeline-item p {
+    color: #666;
+}
+
+/* MY SERVICES SECTION */
+.myServices {
+    background-color: var(--color-orange-default);
+    text-align: center;
+}
+
+
+.myServices-item-icon {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border-radius: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: white;
+    font-size: 50px;
+    color: var(--color-orange-default);
+
+}
+
+.myServices-item .myServices-item-content {
+    color: white;
+}
+
+.myServices-item .myServices-item-content p {
+    width: 80%;
+    margin: auto;
+}
+
+
+/* SKILLS SECTION*/
+
+.skills-item .skills-content {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+}
+
+.progress-circle-section {
+    margin-bottom: 6rem;
+}
+
+.progress-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.progress-circle {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: conic-gradient(#ff9800 calc(var(--percent) * 1%), #f2f2f2 0);
+
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.progress-circle::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.progress-circle .label {
+    font-weight: bold;
+    z-index: 1;
+}
+
+.progress-circle .percent {
+    font-size: 14px;
+    margin-top: 5px;
+    z-index: 1;
+}
+
+/* .progress-circle[data-percent="95%"] {
+    --percent: 95;
+  }
+  
+  .progress-circle[data-percent="93%"] {
+    --percent: 93;
+  }
+  
+  .progress-circle[data-percent="90%"] {
+    --percent: 90;
+  }
+  
+  .progress-circle[data-percent="89%"] {
+    --percent: 89;
+  }
+  
+  .progress-circle[data-percent="85%"] {
+    --percent: 85;
+  } */
+
+/* PROGRESS BAR SECTION */
+
+.progress-bar-wrapper {
+    margin-bottom: 30px;
+}
+
+.progress-bar-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* WORK SECTION */
+.work {
+    background-color: var(--color-orange-default);
+}
+
+.work-content {
+    gap: 12px;
+}
+
+.work-item {
+    flex-basis: calc(25% - 15px);
+    cursor: pointer;
+}
+
+.work-item-1 {
+    background-image: url("https://technext.github.io/profile/images/portfolio-1.jpg");
+}
+
+.work-item-2 {
+    background-image: url("https://technext.github.io/profile/images/portfolio-2.jpg");
+}
+
+.work-item-3 {
+    background-image: url("https://technext.github.io/profile/images/portfolio-3.jpg");
+}
+
+.work-item-4 {
+    background-image: url("https://technext.github.io/profile/images/portfolio-4.jpg");
+}
+
+.work-item-5 {
+    background-image: url("https://technext.github.io/profile/images/portfolio-5.jpg");
+}
+
+.work-item-6 {
+    background-image: url("https://technext.github.io/profile/images/portfolio-6.jpg");
+}
+
+.work-item-7 {
+    background-image: url("https://technext.github.io/profile/images/portfolio-7.jpg");
+}
+
+.work-item-8 {
+    background-image: url("https://technext.github.io/profile/images/portfolio-8.jpg");
+}
+
+.work-item {
+    background-size: cover;
+    background-position: center center;
+    height: 270px;
+    overflow: hidden;
+    position: relative;
+}
+
+.work-item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    opacity: 0;
+    background-color: white;
+    transition: all .2s;
+    z-index: 1;
+}
+
+.work-item-overlay .work-item-content h3 {
+    color: var(--color-black-default);
+    transform: translateY(-10px);
+    transition: all .3s;
+    margin-bottom: 30px
+}
+
+
+.work-item-overlay .work-item-content span {
+    color: #999999;
+    transform: translateY(10px);
+    transition: all .3s;
+    display: inline-block;
+}
+
+.work-item-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.work-item:hover .work-item-overlay {
+    opacity: 1;
+}
+
+
+.work-item:hover .work-item-content h3 {
+    transform: translateY(10px);
+}
+
+.work-item:hover .work-item-content span {
+    transform: translateY(-10px);
+}
+
+/* POST */
+
+.post-title-section {
+    width: 60%;
+    margin: 0 auto 5rem auto;
+    text-align: center
+}
+
+.post-title {
+    margin-bottom: 2rem;
+}
+
+.post-content{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.post-card{
+    flex-basis: calc(33% - 30px);
+}
+
+.post-card-content {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    padding: 30px;
+}
+
+.post-card-header {
+    background-size: cover;
+    height: 300px;
+}
+
+.post-card-header-1 {
+    background-image: url("https://technext.github.io/profile/images/portfolio-1.jpg");
+}
+
+.post-card-body p:first-child{
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    margin-bottom: 20px;
+
+}
+
+.post-card-body h3{
+    font-size: 24px;
+    margin-bottom: 20px;
+
+}
+
+.post-card-body p:last-child{
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.post-card-footer{
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-card-footer div:last-child{
+    cursor: pointer;
+
+}
+
+
+/* HIREME SECTION */
+
+.hireme{
+    color: white;
+    background-color: var(--color-orange-default);
+}
+
+.hireme-content{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+
+.hireme-title{
+    margin-bottom: 20px;
+}
+
+.hireme-content p{
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hireme-content button{
+    padding: 18px 36px;
+    border-radius: 30px;
+    border:none;
+    background-color: white;
+    color: var(--color-orange-default);
+}
+
+
+/* CONTACT FORM SECTION */
+.contact-form{
+    padding: 0;
+    display: flex;
+}
+
+.contact-form-img{
+    background-image: url("https://technext.github.io/profile/images/cover_bg_1.jpg");
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    width: 50%;
+}
+
+.contact-form-img::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-form{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 4rem;
+    width: 50%;
+}
+
+.contact-form-form input{
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    color: #555555;
+    transition: border-color .3s;
+}
+
+.contact-form-form textarea{
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 257px;
+    padding: 10px 20px;
+    transition: border-color .2s;
+}
+
+.contact-form-form input:focus, .contact-form-form textarea:focus{
+    border:2px solid var(--color-orange-default)!important;
+    outline: none;
+    box-shadow: none;
+}
+
+.form-btn button{
+    padding: 8px 20px;
+    background-color: var(--color-orange-default);
+    color: white;
+    border-radius: 30px;
+    border:none;
+}
+
+
+/* RESPONSIVE
+ */
+
+ @media screen and (max-width: 768px) {
+    /* GLOBAL */
+    section{
+        padding: 4.5rem 0;
+    }
+
+    .container-config{
+        padding: 0 1.5rem;
+    }
+
+    /* HEADER */
+    .header-name{
+        font-size: 34px;
+    }
+
+    .header-role{
+        font-size: 14px;
+    }
+
+    .about-content-left ul{
+        padding-left: 0;
+    }
+
+    /* MY RESUME */
+    .timeline-header{
+        text-align: left;
+        right: 15px;
+    }
+    
+    .timeline::before{
+        left: 0;
+    }
+
+    .timeline .timeline-item .timeline-content{
+        padding-left: 40px;
+        margin-left: 0;
+
+    }
+
+    .timeline-item .timeline-content{
+        width: 100%;
+        text-align: left;
+    }
+
+    .timeline-item .timeline-icon{
+        left: -10px;
+        transform: translateY(-50%);
+    }
+
+    .timeline-item h2, .timeline-item h3{
+        margin-bottom: 20px;
+    }
+
+    /* MY SERVICES */
+    .myServices-item-content h3, .myServices-item .myServices-item-content p{
+        margin-bottom: 20px;
+    }
+
+    /* WORK */
+    .work{
+        padding-bottom: 1rem;
+    }
+    .work-item{
+        flex-basis: calc(100%);
+    }
+
+    
+    /* POST */
+
+    .post-title-section{
+        width: 100%;
+    }
+    .post-title{
+        text-wrap: nowrap;
+    }
+
+
+    .post-card{
+        flex-basis: 100%;
+    }
+
+
+    /* HIRE ME */
+    .hireme{
+        padding: 3rem 0;
+        padding-bottom: 4rem;
+    }
+    .hireme .container-config{
+        padding: 0;
+    }
+    .hireme-content{
+        width: 100%;
+    }
+
+    /* CONTACT */
+    .contact-form-img{
+        display: none;
+    }
+
+    .contact-form-form{
+        width: 100%;
+        padding: 4rem 1rem;
+    }
+ }
+
