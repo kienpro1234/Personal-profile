@@ -49,7 +49,7 @@
         <div class="header-overlay"></div>
     </header>
 
-    <section class="about">
+    <section class="about hidden">
         <div class="container-config">
             <h2 class="title">About Me</h2>
             <div class="about-content row gx-0 align-items-baseline">
@@ -116,7 +116,7 @@
         </div>
     </section>
 
-    <section class="myResume">
+    <section class="myResume hidden">
         <div class="container-config">
             <h2 class="title myResume-title">My Resume</h2>
 
@@ -124,7 +124,7 @@
                 <div class="timeline-header">
                     <span class="title">WORK EXPERIENCE</span>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item hidden">
                     <div class="timeline-icon"></div>
                     <div class="timeline-content">
                         <h2>Senior Developer</h2>
@@ -134,7 +134,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item hidden">
                     <div class="timeline-icon"></div>
                     <div class="timeline-content">
                         <h2>Junior Developer</h2>
@@ -144,7 +144,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item hidden">
                     <div class="timeline-icon"></div>
                     <div class="timeline-content">
                         <h2>UI/UX Designer</h2>
@@ -156,7 +156,7 @@
                     <span class="title">EDUCATION</span>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item hidden">
                     <div class="timeline-icon"></div>
                     <div class="timeline-content">
                         <h2>Bachelor of Computer Science</h2>
@@ -166,7 +166,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item hidden">
                     <div class="timeline-icon"></div>
                     <div class="timeline-content">
                         <h2>High School Diploma</h2>
@@ -179,7 +179,7 @@
         </div>
     </section>
 
-    <section class="myServices">
+    <section class="myServices hidden">
         <div class="container-config">
 
             <h2 class="title text-white">My Services</h2>
@@ -279,7 +279,7 @@
         </div>
     </section>
 
-    <section class="skills">
+    <section class="skills hidden">
         <div class="container-config">
             <div class="progress-circle-section">
 
@@ -469,7 +469,7 @@
         </div>
     </section>
 
-    <section class="work">
+    <section class="work hidden">
         <div class="container-config">
             <h2 class="title text-white">
                 Work
@@ -553,7 +553,7 @@
         </div>
     </section>
 
-    <section class="post">
+    <section class="post hidden">
         <div class="container-config">
             <div class="post-title-section">
 
@@ -657,7 +657,7 @@
         </div>
     </section>
 
-    <section class="hireme">
+    <section class="hireme hidden">
         <div class="container-config">
             <div class="hireme-content">
 
@@ -669,7 +669,7 @@
         </div>
     </section>
 
-    <section class="contact-form">
+    <section class="contact-form hidden">
         <div class="contact-form-img">
         </div>
 
@@ -694,10 +694,109 @@
 
     <script>
 
-        document.querySelectorAll(".progress-circle").forEach(circle => {
-            const percent = circle.getAttribute("data-percent").replace("%", "");
-            circle.style.setProperty("--percent", percent);
-        })
+        // document.querySelectorAll(".progress-circle").forEach(circle => {
+        //     const percent = circle.getAttribute("data-percent").replace("%", "");
+        //     circle.style.setProperty("--percent", percent);
+        // })
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Ngừng quan sát khi phần tử đã hiện
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Lựa chọn các phần tử cần áp dụng hiệu ứng
+            document.querySelectorAll('.hidden').forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const workItems = document.querySelectorAll('.work-item');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Thêm class 'visible' với độ trễ tương ứng cho từng item
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 200); // Thêm độ trễ giữa các item (200ms)
+
+                        observer.unobserve(entry.target); // Ngừng quan sát phần tử khi nó đã hiện
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            workItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const workItems = document.querySelectorAll('.post-card');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Thêm class 'visible' với độ trễ tương ứng cho từng item
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 200); // Thêm độ trễ giữa các item (200ms)
+
+                        observer.unobserve(entry.target); // Ngừng quan sát phần tử khi nó đã hiện
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            workItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const progressCircles = document.querySelectorAll('.progress-circle');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const circle = entry.target;
+                        const percent = circle.getAttribute('data-percent').replace("%", "");
+
+                        // Cập nhật giá trị phần trăm cho biến --percent trong CSS
+                        circle.style.setProperty('--percent', percent);
+
+                        // Kích hoạt animation từ 0 đến percent
+                        let currentPercent = 0;
+                        const interval = setInterval(() => {
+                            if (currentPercent < percent) {
+                                currentPercent+=2; // Có thể tăng tốc độ ở đây
+                                circle.style.setProperty('--percent', currentPercent);
+                                circle.querySelector('.percent').textContent = `${currentPercent}%`;
+                            } else {
+                                clearInterval(interval);
+                            }
+                        }, 10);
+
+                        // Thêm class để kích hoạt animation
+                        circle.classList.add('animate-progress');
+
+                        // Dừng quan sát phần tử sau khi animation bắt đầu
+                        observer.unobserve(circle);
+                    }
+                });
+            }, { threshold: 0.1 }); // Khi 10% của phần tử có mặt trong viewport
+
+            // Quan sát tất cả các phần tử progress-circle
+            progressCircles.forEach(circle => observer.observe(circle));
+        });
+
+
+
     </script>
 </body>
 

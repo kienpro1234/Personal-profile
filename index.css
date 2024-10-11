@@ -376,13 +376,16 @@ section {
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    background: conic-gradient(#ff9800 calc(var(--percent) * 1%), #f2f2f2 0);
-
-    /* background-color: red; */
+    background: conic-gradient(#ff9800 0%, #f2f2f2 0); /* Bắt đầu từ 0% */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: background-color 1.5s ease-in-out;
+}
+
+.progress-circle.animate-progress {
+    background: conic-gradient(#ff9800 calc(var(--percent) * 1%), #f2f2f2 0); /* Animation dựa trên phần trăm */
 }
 
 .progress-circle::before {
@@ -405,28 +408,6 @@ section {
     z-index: 1;
 }
 
-/* .progress-circle[data-percent="95%"] {
-    --percent: 95;
-  }
-  
-  .progress-circle[data-percent="93%"] {
-    --percent: 93;
-  }
-  
-  .progress-circle[data-percent="90%"] {
-    --percent: 90;
-  }
-  
-  .progress-circle[data-percent="89%"] {
-    --percent: 89;
-  }
-  
-  .progress-circle[data-percent="85%"] {
-    --percent: 85;
-  } */
-
-/* PROGRESS BAR SECTION */
-
 .progress-bar-wrapper {
     margin-bottom: 30px;
 }
@@ -435,6 +416,7 @@ section {
     display: flex;
     justify-content: space-between;
 }
+
 
 /* WORK SECTION */
 .work {
@@ -551,13 +533,13 @@ section {
     margin-bottom: 2rem;
 }
 
-.post-content{
+.post-content {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
 }
 
-.post-card{
+.post-card {
     flex-basis: calc(33% - 30px);
 }
 
@@ -575,31 +557,31 @@ section {
     background-image: url("https://technext.github.io/profile/images/portfolio-1.jpg");
 }
 
-.post-card-body p:first-child{
+.post-card-body p:first-child {
     color: rgba(0, 0, 0, 0.3);
     font-size: 18px;
     margin-bottom: 20px;
 
 }
 
-.post-card-body h3{
+.post-card-body h3 {
     font-size: 24px;
     margin-bottom: 20px;
 
 }
 
-.post-card-body p:last-child{
+.post-card-body p:last-child {
     padding-bottom: 30px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.post-card-footer{
+.post-card-footer {
     padding-top: 20px;
     display: flex;
     justify-content: space-between;
 }
 
-.post-card-footer div:last-child{
+.post-card-footer div:last-child {
     cursor: pointer;
 
 }
@@ -607,43 +589,43 @@ section {
 
 /* HIREME SECTION */
 
-.hireme{
+.hireme {
     color: white;
     background-color: var(--color-orange-default);
 }
 
-.hireme-content{
+.hireme-content {
     width: 60%;
     margin: auto;
     text-align: center;
 }
 
 
-.hireme-title{
+.hireme-title {
     margin-bottom: 20px;
 }
 
-.hireme-content p{
+.hireme-content p {
     font-size: 18px;
     margin-bottom: 30px;
 }
 
-.hireme-content button{
+.hireme-content button {
     padding: 18px 36px;
     border-radius: 30px;
-    border:none;
+    border: none;
     background-color: white;
     color: var(--color-orange-default);
 }
 
 
 /* CONTACT FORM SECTION */
-.contact-form{
+.contact-form {
     padding: 0;
     display: flex;
 }
 
-.contact-form-img{
+.contact-form-img {
     background-image: url("https://technext.github.io/profile/images/cover_bg_1.jpg");
     background-size: cover;
     background-position: center center;
@@ -651,7 +633,7 @@ section {
     width: 50%;
 }
 
-.contact-form-img::after{
+.contact-form-img::after {
     content: "";
     position: absolute;
     left: 0;
@@ -661,7 +643,7 @@ section {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.contact-form-form{
+.contact-form-form {
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -669,14 +651,14 @@ section {
     width: 50%;
 }
 
-.contact-form-form input{
+.contact-form-form input {
     border: 2px solid rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
     color: #555555;
     transition: border-color .3s;
 }
 
-.contact-form-form textarea{
+.contact-form-form textarea {
     border: 2px solid rgba(0, 0, 0, 0.1);
     width: 100%;
     height: 257px;
@@ -684,126 +666,147 @@ section {
     transition: border-color .2s;
 }
 
-.contact-form-form input:focus, .contact-form-form textarea:focus{
-    border:2px solid var(--color-orange-default)!important;
+.contact-form-form input:focus,
+.contact-form-form textarea:focus {
+    border: 2px solid var(--color-orange-default) !important;
     outline: none;
     box-shadow: none;
 }
 
-.form-btn button{
+.form-btn button {
     padding: 8px 20px;
     background-color: var(--color-orange-default);
     color: white;
     border-radius: 30px;
-    border:none;
+    border: none;
 }
 
 
 /* RESPONSIVE
  */
 
- @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
+
     /* GLOBAL */
-    section{
+    section {
         padding: 4.5rem 0;
     }
 
-    .container-config{
+    .container-config {
         padding: 0 1.5rem;
     }
 
     /* HEADER */
-    .header-name{
+    .header-name {
         font-size: 34px;
     }
 
-    .header-role{
+    .header-role {
         font-size: 14px;
     }
 
-    .about-content-left ul{
+    .about-content-left ul {
         padding-left: 0;
     }
 
     /* MY RESUME */
-    .timeline-header{
+    .timeline-header {
         text-align: left;
         right: 15px;
     }
-    
-    .timeline::before{
+
+    .timeline::before {
         left: 0;
     }
 
-    .timeline .timeline-item .timeline-content{
+    .timeline .timeline-item .timeline-content {
         padding-left: 40px;
         margin-left: 0;
 
     }
 
-    .timeline-item .timeline-content{
+    .timeline-item .timeline-content {
         width: 100%;
         text-align: left;
     }
 
-    .timeline-item .timeline-icon{
+    .timeline-item .timeline-icon {
         left: -10px;
         transform: translateY(-50%);
     }
 
-    .timeline-item h2, .timeline-item h3{
+    .timeline-item h2,
+    .timeline-item h3 {
         margin-bottom: 20px;
     }
 
     /* MY SERVICES */
-    .myServices-item-content h3, .myServices-item .myServices-item-content p{
+    .myServices-item-content h3,
+    .myServices-item .myServices-item-content p {
         margin-bottom: 20px;
     }
 
     /* WORK */
-    .work{
+    .work {
         padding-bottom: 1rem;
     }
-    .work-item{
+
+    .work-item {
         flex-basis: calc(100%);
     }
 
-    
+
     /* POST */
 
-    .post-title-section{
+    .post-title-section {
         width: 100%;
     }
-    .post-title{
+
+    .post-title {
         text-wrap: nowrap;
     }
 
 
-    .post-card{
+    .post-card {
         flex-basis: 100%;
     }
 
 
     /* HIRE ME */
-    .hireme{
+    .hireme {
         padding: 3rem 0;
         padding-bottom: 4rem;
     }
-    .hireme .container-config{
+
+    .hireme .container-config {
         padding: 0;
     }
-    .hireme-content{
+
+    .hireme-content {
         width: 100%;
     }
 
     /* CONTACT */
-    .contact-form-img{
+    .contact-form-img {
         display: none;
     }
 
-    .contact-form-form{
+    .contact-form-form {
         width: 100%;
         padding: 4rem 1rem;
     }
- }
+}
+
+
+/* ANIMATION  */
+.hidden, .work-item, .post-card {
+    opacity: 0;
+    transform: translateY(70px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible, .work-item.visible, .post-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
